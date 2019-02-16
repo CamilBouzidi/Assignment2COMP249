@@ -28,8 +28,24 @@ public class Aircraft extends PublicTransportation {
 		this.MTypeChosen = a1.MTypeChosen;
 	}
 	
+	public CType getCTypeChosen() {
+		return CTypeChosen;
+	}
+
+	public void setCTypeChosen(CType cTypeChosen) {
+		CTypeChosen = cTypeChosen;
+	}
+
+	public MType getMTypeChosen() {
+		return MTypeChosen;
+	}
+
+	public void setMTypeChosen(MType mTypeChosen) {
+		MTypeChosen = mTypeChosen;
+	}
+
 	public String toString() {
-		return super.toString() + "It is a "+CTypeChosen+", and must be maintained"+MTypeChosen+". ";
+		return super.toString() + "It is a "+CTypeChosen+", and must be maintained "+MTypeChosen+". ";
 	}
 	
 	public boolean equals(Object x) {
@@ -41,6 +57,8 @@ public class Aircraft extends PublicTransportation {
 					(this.MTypeChosen==y.MTypeChosen));
 		}
 	}
-	
+	public Aircraft clone() {
+		return new Aircraft(this);
+	}
 	
 }

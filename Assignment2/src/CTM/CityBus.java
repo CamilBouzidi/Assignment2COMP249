@@ -28,23 +28,9 @@ public class CityBus extends PublicTransportation{
 		this.lineName=b1.lineName;
 	}
 	public double getTicketP() {
-		return getTicketP();
+		return super.getTicketP();
 	}
 
-
-	public void setTicketP(double ticketP) {
-		setTicketP(ticketP);
-	}
-
-
-	public int getnStops() {
-		return getnStops();
-	}
-
-	public void setnStops(int nStops) {
-		setnStops(nStops);;
-	}
-	
 	public long getRouteNum() {
 		return routeNum;
 	}
@@ -84,5 +70,8 @@ public class CityBus extends PublicTransportation{
 		}
 	}
 	
+	public CityBus clone() {
+		return new CityBus(this);
+	}
 
 }

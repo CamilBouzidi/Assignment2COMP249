@@ -21,14 +21,40 @@ public class PublicTransportation {
 		this.nStops = p1.nStops;
 	}
 
+	public double getTicketP() {
+		return ticketP;
+	}
+
+
+	public void setTicketP(double ticketP) {
+		this.ticketP = ticketP;
+	}
+
+
+	public int getnStops() {
+		return nStops;
+	}
+
+
+	public void setnStops(int nStops) {
+		this.nStops = nStops;
+	}
+
+
 	public String toString() {
 		String objFull = this.getClass().toString();
 		String obj=null;
-		if (objFull.charAt(6)=='.') {//Object has class PublicTransportation
-			obj = objFull.substring(6);
+		if (objFull.charAt(8)=='.') {//Object has class from package pT
+			obj = objFull.substring(9);
 		}
-		else {//Object has class from CTM package
+		else if (objFull.charAt(9)=='.') {//Object has class from package CTM
 			obj = objFull.substring(10);
+		}
+		else if (objFull.charAt(11)=='.') {//Object has class from package fERRY
+			obj = objFull.substring(12);
+		}
+		else if (objFull.charAt(14)=='.') {//Object has class from package aIRCRAFT
+			obj = objFull.substring(15);
 		}
 		return "This "+obj+" has a ticket price of " + ticketP + "$, and has " + nStops + " stops. ";
 	}
@@ -40,6 +66,10 @@ public class PublicTransportation {
 			PublicTransportation y = (PublicTransportation) x;
 			return ((this.ticketP==y.ticketP)&&(this.nStops==y.nStops));
 		}
+	}
+	
+	public PublicTransportation clone() {
+		return new PublicTransportation(this);
 	}
 
 }

@@ -18,8 +18,16 @@ public class Tram extends CityBus{
 		this.maxSpeed = t1.maxSpeed;
 	}
 	
+	public int getMaxSpeed() {
+		return maxSpeed;
+	}
+
+	public void setMaxSpeed(int maxSpeed) {
+		this.maxSpeed = maxSpeed;
+	}
+
 	public String toString(){
-		return super.toString()+"It has a max speed of "+maxSpeed+".";
+		return super.toString()+"It has a max speed of "+maxSpeed+" km/hs.";
 	}
 	
 	public boolean equals(Object x) {
@@ -31,6 +39,7 @@ public class Tram extends CityBus{
 					(this.lineName==y.lineName)&&(this.maxSpeed==y.maxSpeed));
 		}
 	}
-	
-
+	public Tram clone() {
+		return new Tram(this);
+	}
 }

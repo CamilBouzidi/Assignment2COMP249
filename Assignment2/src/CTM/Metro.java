@@ -7,8 +7,10 @@ public class Metro extends CityBus {
 		super();
 	}
 
-	public Metro(double ticketP, int nStops, long routeNum, int beginOpYear, String lineName) {
+	public Metro(double ticketP, int nStops, long routeNum, int beginOpYear, String lineName, int numVehicles, String cityName) {
 		super(ticketP, nStops, routeNum, beginOpYear, lineName);
+		this.numVehicles=numVehicles;
+		this.cityName=cityName;
 	}
 
 	public Metro(Metro m1) {
@@ -17,8 +19,24 @@ public class Metro extends CityBus {
 		this.cityName = m1.cityName;
 	}
 	
+	public int getNumVehicles() {
+		return numVehicles;
+	}
+
+	public void setNumVehicles(int numVehicles) {
+		this.numVehicles = numVehicles;
+	}
+
+	public String getCityName() {
+		return cityName;
+	}
+
+	public void setCityName(String cityName) {
+		this.cityName = cityName;
+	}
+
 	public String toString() {
-		return toString() + "It has "+" vehicles, and operates in "+cityName+".";
+		return super.toString() + "It has "+" vehicles, and operates in "+cityName+".";
 	}
 	
 	public boolean equals(Object x) {
@@ -30,5 +48,8 @@ public class Metro extends CityBus {
 					(this.lineName==y.lineName)&&(this.numVehicles==y.numVehicles)&&(this.cityName==y.cityName));
 		}
 	}
-
+	
+	public Metro clone() {
+		return new Metro(this);
+	}
 }

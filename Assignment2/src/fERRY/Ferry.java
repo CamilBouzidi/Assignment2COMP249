@@ -38,4 +38,7 @@ public class Ferry extends PublicTransportation {
 					&&(this.shipName==y.shipName));
 		}
 	}
+	public Ferry clone() {
+		return new Ferry(this);
+	}
 }
