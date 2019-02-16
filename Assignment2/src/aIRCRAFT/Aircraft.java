@@ -3,8 +3,8 @@ package aIRCRAFT;
 import pT.PublicTransportation;
 
 public class Aircraft extends PublicTransportation {
-	enum CType{Helicopter, Airline, Glider, Balloon}
-	enum MType{Weekly, Monthly, Yearly}
+	public static enum CType{Helicopter, Airline, Glider, Balloon}
+	public static enum MType{Weekly, Monthly, Yearly}
 	
 	protected CType CTypeChosen;
 	protected MType MTypeChosen;
