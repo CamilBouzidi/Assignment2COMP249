@@ -1,7 +1,7 @@
 package CTM;
 
 public class Tram extends CityBus{
-	protected int maxSpeed;
+	private int maxSpeed;
 
 	public Tram() {
 		super();
@@ -35,8 +35,8 @@ public class Tram extends CityBus{
 			return false;//There is no point in checking if the object calling the method is null, because we would get a runtime error if it were.
 		else {
 			Tram y = (Tram) x;
-			return ((this.ticketP==y.ticketP)&&(this.nStops==y.nStops)&&(this.routeNum==y.routeNum)&&
-					(this.lineName==y.lineName)&&(this.maxSpeed==y.maxSpeed));
+			return ((this.getnStops()==y.getnStops())&&(this.getTicketP()==y.getTicketP())&&(this.getRouteNum()==y.getRouteNum())&&
+					(this.getLineName()==y.getLineName())&&(this.maxSpeed==y.maxSpeed)&&(this.getBeginOpYear()==y.getBeginOpYear()));
 		}
 	}
 	public Tram clone() {

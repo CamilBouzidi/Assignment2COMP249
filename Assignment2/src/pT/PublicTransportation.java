@@ -1,8 +1,8 @@
 package pT;
 
 public class PublicTransportation {
-	protected double ticketP;
-	protected int nStops;
+	private double ticketP;
+	private int nStops;
 	
 	
 	public PublicTransportation() {

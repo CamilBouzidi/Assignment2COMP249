@@ -1,8 +1,9 @@
 package CTM;
 
 public class Metro extends CityBus {
-	protected int numVehicles;
-	protected String cityName;
+	private int numVehicles;
+	private String cityName;
+	
 	public Metro() {
 		super();
 	}
@@ -44,8 +45,9 @@ public class Metro extends CityBus {
 			return false;//There is no point in checking if the object calling the method is null, because we would get a runtime error if it were.
 		else {
 			Metro y = (Metro) x;
-			return ((this.ticketP==y.ticketP)&&(this.nStops==y.nStops)&&(this.routeNum==y.routeNum)&&
-					(this.lineName==y.lineName)&&(this.numVehicles==y.numVehicles)&&(this.cityName==y.cityName));
+			return (this.getTicketP()==y.getTicketP()&&(this.getnStops()==y.getnStops())&&(this.getRouteNum()==y.getRouteNum())&&
+					(this.getLineName()==y.getLineName())&&(this.getNumVehicles()==y.getNumVehicles())&&(this.cityName==y.cityName)&&
+					(this.getBeginOpYear()==y.getBeginOpYear()));
 		}
 	}
 	

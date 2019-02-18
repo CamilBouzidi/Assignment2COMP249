@@ -6,8 +6,8 @@ public class Aircraft extends PublicTransportation {
 	public static enum CType{Helicopter, Airline, Glider, Balloon}
 	public static enum MType{Weekly, Monthly, Yearly}
 	
-	protected CType CTypeChosen;
-	protected MType MTypeChosen;
+	private CType CTypeChosen;
+	private MType MTypeChosen;
 	
 	public Aircraft() {
 		super();
@@ -53,7 +53,7 @@ public class Aircraft extends PublicTransportation {
 			return false;//There is no point in checking if the object calling the method is null, because we would get a runtime error if it were.
 		else {
 			Aircraft y = (Aircraft) x;
-			return ((this.ticketP==y.ticketP)&&(this.nStops==y.nStops)&&(this.CTypeChosen==y.CTypeChosen)&&
+			return ((this.getTicketP()==y.getTicketP())&&(this.getnStops()==y.getnStops())&&(this.CTypeChosen==y.CTypeChosen)&&
 					(this.MTypeChosen==y.MTypeChosen));
 		}
 	}

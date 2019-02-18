@@ -24,11 +24,11 @@ public class Driver {
 		System.out.println("aircraft1: "+aircraft1);
 		System.out.println("cityBus1 and metro1 are equal: "+cityBus1.equals(metro1));
 		System.out.println("aircraft1 and aircraf1 are equal: "+aircraft1.equals(aircraft1));
-		
+
 		PublicTransportation[] a = new PublicTransportation[15];
 		a[0] = new PublicTransportation(publicTransportation1);
 		int rem=0;
-		
+
 		for (int i = 1; i < a.length; i++) {
 			rem = i%6;
 			switch (rem) {
@@ -49,26 +49,22 @@ public class Driver {
 				break;
 			case 0:
 				a[i] = new Aircraft((500*i), (2*i), CType.Airline, MType.Monthly);
-				break;
 			default:
-				break;
 			}
 		}
-		
+
 		PublicTransportation cheapest = new PublicTransportation();
 		PublicTransportation highest = new PublicTransportation();
 		double cheapestP=1000000.00;
 		double highestP=0.0;
-		
+
 		for (int i = 0; i < a.length; i++) {
 			System.out.println(a[i]);
 			System.out.println("The price of object "+i+" is: "+a[i].getTicketP());
 			if (a[i].getTicketP()<cheapestP) {
 				cheapest = a[i].clone();
 				cheapestP = a[i].getTicketP();
-			}
-			
-			if(a[i].getTicketP()>highestP) {
+			}else if(a[i].getTicketP()>highestP) {
 				highest = a[i].clone();
 				highestP = a[i].getTicketP();
 			}
@@ -77,6 +73,5 @@ public class Driver {
 		System.out.println("The cheapest is the following: "+cheapest.toString());
 		System.out.println("The most expensive is the following: "+highest.toString());
 		System.out.println("Thank you for using this program. ");
-		System.exit(0);
 	}
 }

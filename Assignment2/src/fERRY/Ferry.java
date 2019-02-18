@@ -3,8 +3,8 @@ package fERRY;
 import pT.PublicTransportation;
 
 public class Ferry extends PublicTransportation {
-	protected int buildYear;
-	protected String shipName;
+	private int buildYear;
+	private String shipName;
 	
 
 	public Ferry(){
@@ -34,7 +34,7 @@ public class Ferry extends PublicTransportation {
 			return false;//There is no point in checking if the object calling the method is null, because we would get a runtime error if it were.
 		else {
 			Ferry y = (Ferry) x;
-			return ((this.ticketP==y.ticketP)&&(this.nStops==y.nStops)&&(this.buildYear==y.buildYear)
+			return ((this.getTicketP()==y.getTicketP())&&(this.getnStops()==y.getnStops())&&(this.buildYear==y.buildYear)
 					&&(this.shipName==y.shipName));
 		}
 	}
