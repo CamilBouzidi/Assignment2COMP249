@@ -1,26 +1,53 @@
 package dRIVER;
-import CTM.CityBus;
-import CTM.Metro;
-import CTM.Tram;
-import aIRCRAFT.Aircraft;
+import CTM.*;
+import aIRCRAFT.*;
 import aIRCRAFT.Aircraft.CType;
 import aIRCRAFT.Aircraft.MType;
-import fERRY.Ferry;
-import pT.PublicTransportation;
+import aIRCRAFT.AircraftP.CTypeP;
+import aIRCRAFT.AircraftP.MTypeP;
+import fERRY.*;
+import pT.*;
+
+/**
+ * This is the second Driver class created for Assignment 2.
+ * @author Morin-Laberge, William (ID #40097269), and Bouzidi, Camil (ID #40099611)
+ * @version 5.0
+ * COMP 249 
+ * Assignment #2
+ * February 24 2019
+ */
 
 /*
- * Now that pT's attributes have private rights, all the subclasses must be modified to use getters when they need to access attributes from
+ * Now that all the classes' attributes have private rights, all the subclasses must be modified to use getters when they need to access attributes from
  * super. Hence, the equals methods of all subclasses had to be modified for when they get the attributes from super.
- * 
- * Concerning the copying, 
+ * The less restrictive the rights to the classes' attributes are, the easier it is to work with them. However, this makes the
+ * objects more fragile, since anyone can change them.
+ * Concerning the copying, some City Bus objects were copied wrong, since the copy constructor was used, hence all objects
+ * that were instances of subclasses of CityBus were not copied correctly.
  */
 
 public class Driver2 {
-	public static PublicTransportation[] copyCityBus(PublicTransportation[] pt) {
-		PublicTransportation[] result = new PublicTransportation[pt.length];
+	public static PublicTransportationP[] copyCityBus(PublicTransportationP[] pt) {
+		int buses = 0;
+		
+		//Looking to see how many CityBuses there are
 		for (int i = 0; i < pt.length; i++) {
-			result[i] = new PublicTransportation(pt[i]);
+			if (pt[i] instanceof CityBusP) {
+				buses++;
+			}
 		}
+		
+		PublicTransportationP[] result = new PublicTransportationP[buses];
+	
+		int spot = 0;
+		//Looking to see how many CityBuses there are
+		for (int i = 0; i < pt.length; i++) {
+			if (pt[i] instanceof CityBusP) {
+				//Telling the compiler that pt[i] is a CityBus
+				result[spot++] = new CityBusP((CityBusP)(pt[i]));
+			}
+		}
+		
 		return result;
 	}
 	
@@ -65,14 +92,17 @@ public class Driver2 {
 		System.out.println("The cheapest is the following: "+cheapest.toString());
 		System.out.println("The most expensive is the following: "+highest.toString());
 		
-		PublicTransportation[] b1 = createVehicleArray(12);
-		PublicTransportation[] b2 = copyCityBus(b1);
-		System.out.println("Here are two arrays, they should be identical.\n");
+		
+		
+		//Section dedicated to part 2
+		PublicTransportationP[] b1 = createVehicleArrayP(12);
+		PublicTransportationP[] b2 = copyCityBus(b1);
+		System.out.println("\nHere are two arrays, we will copy all the CityBuses of the first array into the second one.\n");
 		System.out.println("Here's the first array: \n");
 		for (int i = 0; i < b1.length; i++) {
 			System.out.println(b1[i]);
 		}
-		System.out.println("\nHere's the second array: ");
+		System.out.println("\nHere's the second array: \n");
 		for (int i = 0; i < b2.length; i++) {
 			System.out.println(b2[i]);
 		}
@@ -103,6 +133,35 @@ public class Driver2 {
 				break;
 			case 0:
 				a[i] = new Aircraft((500*i), (2*i), CType.Airline, MType.Monthly);
+			default:
+			}
+		}
+		return a;
+	}
+	
+	public static PublicTransportationP[] createVehicleArrayP(int size) {
+		PublicTransportationP[] a = new PublicTransportationP[size];
+		int rem=0;
+		for (int i = 0; i < a.length; i++) {
+			rem = i%6;
+			switch (rem) {
+			case 1:
+				a[i] = new PublicTransportationP((1.00*i),(2*i-1));
+				break;
+			case 2:
+				a[i] = new CityBusP((2.50*i),(i+1), (151*i), (1990+i), "Road"+(60+i));
+				break;
+			case 3:
+				a[i] = new MetroP((2.75*i),(2*i+1), (321*i), (1995+i), "Road"+(68+i), (3*i), "Gotham");
+				break;
+			case 4:
+				a[i] = new TramP((2.50*i),(i+1), (151*i), (1990+i), "Road"+(60+i),(30+3*i));
+				break;
+			case 5:
+				a[i] = new FerryP((24.0*i), (i-2), (1950+i), "Callister "+i);
+				break;
+			case 0:
+				a[i] = new AircraftP((500*i), (2*i), CTypeP.Airline, MTypeP.Monthly);
 			default:
 			}
 		}

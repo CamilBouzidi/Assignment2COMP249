@@ -2,7 +2,6 @@ package pT;
 
 //---------------------------------------------------------
 //Assignment #2
-//CityBus class with its attributes made private.
 //Written by: Bouzidi, Camil (ID #40099611) and Morin-Laberge, William (ID #40097269)
 //---------------------------------------------------------
 
@@ -17,8 +16,8 @@ package pT;
  */
 
 public class PublicTransportation {
-	private double ticketP;
-	private int nStops;
+	protected double ticketP;
+	protected int nStops;
 	
 	/**
 	 * Constructor that will be called for all objects in this assignment.
@@ -126,8 +125,6 @@ public class PublicTransportation {
 	
 	/**
 	 * Clone 
-	 * 
-	 * @param void
 	 * @return identical Public Transportation object
 	 * This method will get overridden by subclasses, unlike the copy constructor.
 	 */

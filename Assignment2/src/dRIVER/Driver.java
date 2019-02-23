@@ -7,7 +7,14 @@ import aIRCRAFT.*;
 import aIRCRAFT.Aircraft.CType;
 import aIRCRAFT.Aircraft.MType;
 
-
+/**
+ * This is the first Driver class created for Assignment 2.
+ * @author Morin-Laberge, William (ID #40097269), and Bouzidi, Camil (ID #40099611)
+ * @version 5.0
+ * COMP 249 
+ * Assignment #2
+ * February 24 2019
+ */
 public class Driver {
 	public static void main(String[] args) {
 		PublicTransportation publicTransportation1 = new PublicTransportation(10.0,5);

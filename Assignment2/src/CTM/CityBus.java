@@ -2,11 +2,15 @@ package CTM;
 
 import pT.PublicTransportation;
 
-//---------------------------------------------------------
-//Assignment #2
-//CityBus class with its attributes made private.
-//Written by: Bouzidi, Camil (ID #40099611) and Morin-Laberge, William (ID #40097269)
-//---------------------------------------------------------
+/**
+ * This is the CityBus class created for Assignment 2.
+ * Constructors, Getters, Setters and methods using the class' attributes are included.
+ * @author Morin-Laberge, William (ID #40097269), and Bouzidi, Camil (ID #40099611)
+ * @version 5.0
+ * COMP 249 
+ * Assignment #2
+ * February 24 2019
+ */
 
 /**
  * This is the CityBus class created for Assignment 2.
@@ -18,9 +22,9 @@ import pT.PublicTransportation;
  * February 24 2019
  */
 public class CityBus extends PublicTransportation{
-	private long routeNum;
-	private int beginOpYear;
-	private String lineName;
+	protected long routeNum;
+	protected int beginOpYear;
+	protected String lineName;
 
 	/**
 	 * Default constructor, which will call the default constructor of super as well
@@ -129,7 +133,7 @@ public class CityBus extends PublicTransportation{
 			return false;//There is no point in checking if the object calling the method is null, because we would get a runtime error if it were.
 		else {
 			CityBus y = (CityBus) x;
-			return ((this.getTicketP()==y.getTicketP())&&(this.getnStops()==y.getnStops())&&(this.routeNum==y.routeNum)&&
+			return ((this.ticketP==y.ticketP)&&(this.nStops==y.nStops)&&(this.routeNum==y.routeNum)&&
 					(this.lineName==y.lineName));
 		}
 	}
